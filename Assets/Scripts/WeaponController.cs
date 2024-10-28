@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform Punta;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            var bullet = Instantiate(bulletPrefab, Punta.position, Punta.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = Punta.forward * bulletSpeed;
+        }
     }
 }
