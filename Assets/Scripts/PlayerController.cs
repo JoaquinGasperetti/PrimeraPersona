@@ -35,15 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-        if (Input.GetButton("Sprint")) //correr y caminar
-        {
-            MoveInput = transform.TransformDirection(MoveInput) * RunSpeed;
-        } else
-        {
-            MoveInput = transform.TransformDirection(MoveInput) * WalkSpeed;
-        }
-
-        
+        MoveInput = transform.TransformDirection(MoveInput) * WalkSpeed;
         charactercontroller.Move(MoveInput * Time.deltaTime);
     }
 
