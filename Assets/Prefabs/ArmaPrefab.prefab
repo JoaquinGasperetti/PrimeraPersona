@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Punta: {fileID: 5737903579844258683}
   bulletPrefab: {fileID: 4535939510244673118, guid: 4b1a9e239a7b9c74687864d032d4c5da, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 50
 --- !u!114 &-2912957939966431126
 MonoBehaviour:
   m_ObjectHideFlags: 0
