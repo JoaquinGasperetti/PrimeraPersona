@@ -18,4 +18,9 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void Links()
+    {
+        Application.OpenURL("https://youtu.be/zjUsoseu1Tk?si=wXpQw7Wi82d6ilSc");
+    }
 }
