@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject jugadorPrefab; // Asigna el prefab del jugador en el Inspector.
-    public GameObject canvasMenu; // Asigna el canvas del menú en el Inspector.
-    public GameObject canvasTimerPrefab; // Asigna el prefab del canvas del timer en el Inspector.
+    public GameObject jugadorPrefab;
+    public GameObject canvasMenu;
+    public GameObject canvasTimerPrefab;
 
     private void Start()
     {
@@ -22,31 +22,33 @@ public class Menu : MonoBehaviour
 
     public void Jugar()
     {
-        // Destruir el canvas del menú.
         Destroy(canvasMenu);
-
-        // Instanciar el canvas del timer.
         Instantiate(canvasTimerPrefab);
 
-        // Coordenadas específicas para instanciar al jugador.
-        Vector3 spawnPosition = new Vector3(-45.27f, 4.4f, -82.76f); // Coordenadas especificadas.
+        Vector3 spawnPosition = new Vector3(-45.27f, 4.4f, -82.76f);
 
-        // Instanciar el jugador en las coordenadas específicas.
-        GameObject jugador = Instantiate(jugadorPrefab, spawnPosition, Quaternion.identity);
+        if (GameManager.Instance.jugador == null)
+        {
+            GameObject jugador = Instantiate(jugadorPrefab, spawnPosition, Quaternion.identity);
+            GameManager.Instance.SetJugador(jugador.transform);
+        }
 
-        // Cambiar la cámara activa a la del jugador.
-        Camera jugadorCamera = jugador.GetComponent<PlayerController>().playerCamera;
+        Camera jugadorCamera = GameManager.Instance.jugador.GetComponent<PlayerController>().playerCamera;
         if (jugadorCamera != null)
         {
             jugadorCamera.gameObject.SetActive(true);
 
-            // Desactivar la cámara del menú.
             Camera menuCamera = Camera.main;
             if (menuCamera != null)
             {
                 menuCamera.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void CambiarNivel()
+    {
+        SceneManager.LoadScene("demo_city_night");
     }
 
     public void Links()

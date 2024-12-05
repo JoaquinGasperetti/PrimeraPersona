@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class Enemigo : MonoBehaviour
 {
-    public Transform jugador;
     private NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        InvokeRepeating("ActualizarDestino", 0f, 0.5f); // Actualizar el destino cada 0.5 segundos
     }
 
-    // Update is called once per frame
-    void Update()
+    void ActualizarDestino()
     {
-        agent.destination = jugador.position;
+        if (GameManager.Instance.jugador != null)
+        {
+            agent.destination = GameManager.Instance.jugador.position;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
