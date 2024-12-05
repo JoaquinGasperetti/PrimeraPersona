@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 6286564542117973407}
-  WalkSpeed: 5
-  RunSpeed: 10
+  WalkSpeed: 10
+  RunSpeed: 30
   SensivilidadCamara: 500
 --- !u!114 &6211820337704004211
 MonoBehaviour:

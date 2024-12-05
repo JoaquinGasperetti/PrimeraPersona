@@ -23,6 +23,7 @@ public class PlayerWeaponController : MonoBehaviour
         {
             AddWeapon(ArmaInicial);
         }
+        CambiarArma(0);
     }
 
     // Update is called once per frame
