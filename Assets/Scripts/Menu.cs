@@ -8,11 +8,13 @@ public class Menu : MonoBehaviour
     public GameObject jugadorPrefab;
     public GameObject canvasMenu;
     public GameObject canvasTimerPrefab;
-
+    public AudioSource MusicaMenu;
+    public AudioClip MenuClip;
     private void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        MusicaMenu.PlayOneShot(MenuClip);
     }
 
     public void VolverMenu()

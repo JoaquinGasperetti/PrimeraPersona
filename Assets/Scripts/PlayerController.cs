@@ -52,11 +52,15 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(-AnguloVerticalCam, 0f, 0f);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("win"))
+        Debug.Log("Trigger detectado con: " + other.gameObject.name); // Mensaje de depuración
+
+        if (other.gameObject.CompareTag("win"))
         {
+            Debug.Log("¡Trigger con objeto Win!");
             SceneManager.LoadScene("Victoria");
         }
     }
+
 }
